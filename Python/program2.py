@@ -25,19 +25,17 @@ Explanation :
 - The sixth student : 9,4,5,3,2 are greater than 10. So the answer is 0.
 '''
 
-lst = list(map(int,input("Enter elements :").split()))
-size = len(lst)
-res = []
+lst = list(map(int,input("Enter elements :").split())) # Taking input from user
+res = [] # Creating a list to store the result
 
-for i in range(size):
-    if(i==0):
-        res.append(0)
+for i in range(len(lst)): # Looping through the whole list
+    if(i==0): # If the index is 0
+        res.append(0) # Appending 0 to res
     else:
-        visited = []
-        count = 0
-        for j in range(i):
-            if(lst[i] < lst[j]):
-                count += 1
-                visited.append(j)
-        res.append(count)
+        count = 0 # Initializing count to 0
+        for j in range(i): # Looping through the list till the index i
+            if(lst[i] < lst[j]): # If the element at index i is less than the element at index j
+                count += 1 # Incrementing count (no. of students a with greater PSC and a head of them)
+        res.append(count) # Appending the count to res
+
 print(res)
