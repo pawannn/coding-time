@@ -1,8 +1,11 @@
 #!/bin/python2
 
-'''Given a list that contains single digit integers, add 1 to the number in array.
+'''
+Problem :
+Given a list that contains single digit integers, add 1 to the number in array.
 eg : i/p : [3,5,4,1]
-o/p : [3,5,4,2]'''
+o/p : [3,5,4,2]
+'''
 
 
 input = [9,9,9,9]
