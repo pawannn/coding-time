@@ -1,4 +1,4 @@
-//Sum of two number through command line argument
+//Sum of two number through command line argument.
 
 import java.util.*;
 public class Main {
