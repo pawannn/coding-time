@@ -35,6 +35,7 @@ Third input - Accept value for D(Positive integer)
 Fourth input - Accept value for X(Positive integer )
 The output format for testing 
 The output should be a positive integer number (Check the output in Example 1, Example e) if no fine is collected then print ”0”.
+#TCS NQT
 '''
 
 def fine(n,a,d,fine):
