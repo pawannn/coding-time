@@ -1,5 +1,9 @@
 #!/bin/python
 
+'''
+#TCS NQT
+'''
+
 def function(v,w):
     res = ((4*v) - w)//2
     return [res, v - res]
