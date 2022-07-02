@@ -37,6 +37,8 @@ c: 4 balloons
 f: 1 balloons 
 Here, both ‘b’ and ‘f’ have odd number of balloons. But ‘b’ colour balloon occurs first.
 Hence , b is the output.
+
+#TCS NQT
 '''
 
 def function(n,lst):
