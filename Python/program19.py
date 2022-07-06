@@ -39,6 +39,8 @@ Here, both ‘b’ and ‘f’ have odd number of balloons. But ‘b’ colour b
 Hence , b is the output.
 
 #TCS NQT
+
+#
 '''
 
 def function(n,lst):
