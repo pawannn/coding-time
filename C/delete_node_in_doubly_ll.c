@@ -7,28 +7,44 @@ struct node {
     struct node *next;
 };
 
+struct node *head, *middle, *last;
+
 void delNode(struct node **head, int key){
+    if(*head == NULL){
+        return;
+    }
+
     struct node *temp = *head;
-    if((*head) -> data == key){
-        temp = *head;
+    while(temp != NULL){
+        if(temp ->data == key){
+            break;
+        }
+        temp = temp -> next;
+    }
+
+    if(temp ==NULL){
+        printf("Key Not Found"); 
+    }
+
+    if(temp == *head){
+        (*head) -> next -> prev = NULL;
         *head = (*head) -> next;
-        (*head) -> prev = NULL;
         free(temp);
     }
+    else if(temp -> next == NULL){
+        temp -> prev -> next = NULL;
+        last = temp -> prev;
+        free(temp);
+        
+    }
     else{
-        while(temp -> next != NULL){
-            if(temp -> data == key){
-                temp -> prev -> next = temp -> next;
-                temp -> next -> prev = temp -> prev;
-            }
-            
-            temp = temp -> next;
-        }
+        temp -> prev -> next = temp -> next;
+        temp -> next -> prev = temp -> prev;
+        free(temp);
     }
 }
 
 int main(){
-    struct node *head, *middle, *last;
 
     head = malloc(sizeof(struct node));
     middle = malloc(sizeof(struct node));
@@ -45,7 +61,7 @@ int main(){
     last -> prev = middle;
     last -> next = NULL;
 
-    int key = 20;
+    int key = 30;
     delNode(&head, key);
 
     printf("Forward Traverse : \n");

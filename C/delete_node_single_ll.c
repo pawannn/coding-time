@@ -14,15 +14,16 @@ void delNode(struct node **head, int val){
         free(element);
     }
     else{
-        struct node *previous;
-        while(element -> next != NULL){
-            if(element -> data == val){
-                previous -> next = element -> next;
+        struct node *current = *head;
+        while(current -> next != NULL){
+            if(current -> next -> data == val){
+                element = current ->next;
+                current -> next = current ->next ->next;
                 free(element);
                 break;
             }
             else{
-                previous = element;
+                current = current -> next;
             }
         }
     }
@@ -44,7 +45,7 @@ int main(){
     middle -> next = last;
     last -> next = NULL;
 
-    int key = 10;
+    int key = 30;
     delNode(&head, key);
     
     struct node *temp = head;
