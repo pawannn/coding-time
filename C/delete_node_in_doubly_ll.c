@@ -16,17 +16,12 @@ void delNode(struct node **head, int key){
         free(temp);
     }
     else{
-        struct node *previous;
         while(temp -> next != NULL){
             if(temp -> data == key){
-                previous -> next = temp -> next;
-                temp -> next -> prev = previous;
-                free(temp);
-                break;
+                temp -> prev -> next = temp -> next;
+                temp -> next -> prev = temp -> prev;
             }
-            else{
-                previous = temp;
-            }
+            
             temp = temp -> next;
         }
     }
