@@ -1,13 +1,27 @@
-// max heapify
+// Online C compiler to run C program online
 #include <stdio.h>
 
 int arr[6] = {10,30,5,40,90,60};
+
 void swap(int x, int y){
     int temp = arr[x];
     arr[x] = arr[y];
     arr[y] = temp;
 }
 
+// void deleteElement(int arr[],int size, int key){
+//     int keyindex, lastele = size - 1;
+//     for(int i = 0; i < size ; i++){
+//         if(arr[i] == key){
+//             keyindex = i;
+//             break;
+//         }
+//     }
+//     swap(keyindex, lastele);
+//     size = size - 1;
+//     heapify(arr, keyindex, size);
+    
+// }
 void heapify(int arr[], int index, int size){
     int left = index * 2 + 1;
     int right = left + 1;
