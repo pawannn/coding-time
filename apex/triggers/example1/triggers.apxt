@@ -1,3 +1,7 @@
 trigger testTrigger on Account (before insert, before update) {
-    system.debug('trigger triggered');
+    list<account> a = trigger.new;
+    for(account a1 : a){
+        a1.name = 'limited' + a1.name;
+    }
+    
 }
