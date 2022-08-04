@@ -1,0 +1,6 @@
+trigger triggerObj on Account (before Update) {
+    account aNew = trigger.new[0];
+    account aOld = trigger.old[0];
+    system.debug('old value : '+ aOld.name);
+    system.debug('new value : '+ aNew.name);
+}
