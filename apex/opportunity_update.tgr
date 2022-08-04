@@ -1,0 +1,12 @@
+
+trigger opp on Opportunity (before update) {
+    map<id, opportunity> nmap = new map<id, opportunity>();
+    nmap = trigger.oldmap;
+    for(opportunity newopp : trigger.new){
+        opportunity oldopp = new opportunity();
+        oldopp = nmap.get(newopp.id);
+        if(newopp.amount != oldopp.amount){
+            newopp.amount.adderror('Cannot update amount');
+        }
+    }
+}
