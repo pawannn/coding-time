@@ -1,0 +1,12 @@
+trigger Check_box on Contact (after insert, after update) {
+    list<contact> cont = trigger.new;
+    list<string> ids = new list<string>();
+    for(contact c : cont){
+        ids.add(c.AccountId);
+    }
+    list<account> acc = [select hascontact__c from account where account.id in :ids];
+    for(account a : acc){
+        a.hascontact__c = true;
+    }
+    update acc;
+}
