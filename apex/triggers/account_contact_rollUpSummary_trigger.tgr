@@ -1,0 +1,35 @@
+trigger ContactCount on Contact (after insert, after update, after delete) {
+    if(trigger.isAfter){
+        if(trigger.isInsert || trigger.isUpdate)
+        {
+            list<contact> cont = trigger.new;
+            list<string> ids = new list<string>();
+            for(contact c : cont){
+                ids.add(c.AccountId);
+            }
+            list<account> acc = [select hascontact_c, counter_c from account where account.id in :ids];
+            for(account a : acc){
+                a.hascontact__c = true;
+                a.counter__c += 1;
+            }
+            update acc;
+         } 
+        
+        if(trigger.isDelete){
+            list<contact> delContact = trigger.old;
+            list<string> delId = new list<string>();
+            for(contact c : delContact){
+                delId.add(c.AccountId);
+            }
+            list<account> acc1 = [select hascontact_c, counter_c from account where account.id in :delId];
+            for(account a : acc1){
+                a.counter__c -= 1;
+                if(a.counter__c < 1){
+                    a.hascontact__c = false;
+                }
+            }
+            update acc1;
+        }
+        
+    }
+}
