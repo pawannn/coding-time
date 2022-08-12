@@ -1,0 +1,23 @@
+<apex:page standardController="Account" sidebar="false">
+    <apex:pageBlock>
+    
+        <apex:pageBlockSection title="Basic Details">
+        
+            <apex:outputField value="{!Account.name}"/>
+            <apex:outputField value="{!Account.rating}"/>
+            <apex:outputField value="{!Account.AccountNumber}" />
+            <apex:outputField value="{!Account.industry}"/>
+            
+        </apex:pageBlockSection>	
+        
+        <apex:pageBlockSection title="Contact Details">
+        
+            <apex:outputField value="{!Account.phone}"/>
+            <apex:outputField value="{!Account.fax}"/>
+            <apex:outputField value="{!Account.website}" />
+            <apex:outputField value="{!Account.TickerSymbol}"/>
+            
+        </apex:pageBlockSection>	
+        
+    </apex:pageBlock>
+</apex:page>
