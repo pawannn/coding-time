@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 struct node{
     struct node *left;
     int data;
@@ -32,7 +31,7 @@ struct node *insertNode(struct node *root, int val){
 };
 
 int getRightMin(struct node *root){
-    struct node *temp = rootl
+    struct node *temp = root;
     while(temp -> left != NULL){
         temp = temp -> left;
     }
