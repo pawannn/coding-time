@@ -19,4 +19,4 @@ for i in range(len(input)):
         else:
             input[i+1] = input[i+1] + 1
 input.reverse()
-print(input)
+print(input)#abc
